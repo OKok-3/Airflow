@@ -1,0 +1,4 @@
+apache-airflow-providers-celery
+apache-airflow-providers-fab
+psycopg2-binary
+asyncpg
