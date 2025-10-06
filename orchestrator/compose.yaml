@@ -26,6 +26,8 @@ services:
   postgres:
     image: postgres:16
     user: "${UID}:${GID}"
+    ports:
+      - ${AIRFLOW_ORCHESTRATOR_HOST}:5432:5432
     environment:
       POSTGRES_USER: ${PG_USER}
       POSTGRES_PASSWORD: ${PG_PASSWORD}
@@ -46,6 +48,8 @@ services:
     # Redis is limited to 7.2-bookworm due to licencing change
     # https://redis.io/blog/redis-adopts-dual-source-available-licensing/
     image: redis:7.2-bookworm
+    ports:
+      - ${AIRFLOW_ORCHESTRATOR_HOST}:6379:6379
     expose:
       - 6379
     healthcheck:
