@@ -1,0 +1,11 @@
+apache-airflow-providers-celery
+apache-airflow-providers-fab
+psycopg2-binary
+asyncpg
+pandas
+polars
+duckdb
+s3fs
+pyspark
+numpy
+httpx
