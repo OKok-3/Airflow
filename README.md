@@ -9,4 +9,4 @@ The goal is to keep images and configs centralized in one location to make it ea
 
 ---
 
-*If you are viewing this repo on GitHub, please note that this is a duplicate of what I have on my own Gitea server. The reason being it is not meant to be deployed in cloud providers (AWS, Azure, GCP, Hetzner, etc.), but on my own infrastructure, so it's easier for me to manage and deploy.*
+*If you are viewing this repo on GitHub, please note that this is a duplicate of what I have on [my own Gitea server](https://gitea.tguan.xyz/OKok-3/Airflow). The reason being it is not meant to be deployed in cloud providers (AWS, Azure, GCP, Hetzner, etc.), but on my own infrastructure, so it's easier for me to manage and deploy.*
