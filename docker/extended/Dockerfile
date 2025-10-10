@@ -2,7 +2,7 @@ ARG AIRFLOW_VERSION=3.1.0
 ARG PYTHON_VERSION=3.12
 
 FROM apache/airflow:slim-${AIRFLOW_VERSION}-python${PYTHON_VERSION}
-COPY --from=ghcr.io/astral-sh/uv:0.8.22 /uv /uvx /bin/
+COPY --from=ghcr.io/astral-sh/uv:0.9.1 /uv /uvx /bin/
 
 ARG AIRFLOW_VERSION
 ARG PYTHON_VERSION
