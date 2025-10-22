@@ -1,6 +1,7 @@
 apache-airflow-providers-celery
 apache-airflow-providers-fab
 apache-airflow-providers-postgres
+apache-airflow-providers-amazon
 psycopg2-binary
 asyncpg
 pandas
