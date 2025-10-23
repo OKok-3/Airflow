@@ -9,6 +9,22 @@ x-airflow-common: &airflow-common
     AIRFLOW__CELERY__BROKER_URL: redis://:@${REDIS_HOST}:6379/0
     AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://${PG_USER}:${PG_PASSWORD}@${PG_HOST}/${PG_DB}
     AIRFLOW__DAG_PROCESSOR__BUNDLE_REFRESH_CHECK_INTERVAL: ${DAG_CHECK_INTERVAL}
+    AIRFLOW__DAG_PROCESSOR__DAG_BUNDLE_CONFIG_LIST: |
+      [
+        {
+          "name": "dags-folder",
+          "classpath": "airflow.dag_processing.bundles.local.LocalDagBundle",
+          "kwargs": {}
+        },
+        {
+          "name": "healthline-dags",
+          "classpath": "airflow.providers.git.bundles.git.GitDagBundle",
+          "kwargs": {
+            "subdir": "dags",
+            "tracking_ref": "main",
+            "refresh_interval": 30
+          }
+      ]
   volumes:
     - ${AIRFLOW_PROJ_DIR}/dags:/opt/airflow/dags
     - ${AIRFLOW_PROJ_DIR}/logs:/opt/airflow/logs
