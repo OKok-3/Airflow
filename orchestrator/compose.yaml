@@ -21,7 +21,7 @@ x-airflow-common: &airflow-common
           "classpath": "airflow.providers.git.bundles.git.GitDagBundle",
           "kwargs": {
             "git_conn_id": "healthline_git_repo",
-            "subdir": "dags",
+            "subdir": "airflow/dags",
             "tracking_ref": "main",
             "refresh_interval": 30
           }
