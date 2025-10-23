@@ -40,9 +40,6 @@ x-airflow-common: &airflow-common
       condition: service_healthy
     postgres:
       condition: service_healthy
-  networks:
-    - airflow
-    - caddy
 
 services:
   postgres:
@@ -100,6 +97,9 @@ services:
       <<: *airflow-common-depends-on
       airflow-init:
         condition: service_completed_successfully
+    networks:
+      - airflow
+      - caddy
 
   airflow-scheduler:
     <<: *airflow-common
@@ -116,6 +116,9 @@ services:
       <<: *airflow-common-depends-on
       airflow-init:
         condition: service_completed_successfully
+    networks:
+      - airflow
+      - caddy
 
   airflow-dag-processor:
     <<: *airflow-common
@@ -136,6 +139,10 @@ services:
       <<: *airflow-common-depends-on
       airflow-init:
         condition: service_completed_successfully
+    networks:
+      - default
+      - airflow
+      - caddy
 
   airflow-triggerer:
     <<: *airflow-common
@@ -156,6 +163,9 @@ services:
       <<: *airflow-common-depends-on
       airflow-init:
         condition: service_completed_successfully
+    networks:
+      - airflow
+      - caddy
 
   airflow-init:
     <<: *airflow-common
@@ -249,6 +259,9 @@ services:
       _AIRFLOW_WWW_USER_PASSWORD: ${_AIRFLOW_WWW_USER_PASSWORD:-airflow}
       _PIP_ADDITIONAL_REQUIREMENTS: ""
     user: "${UID}:0"
+    networks:
+      - airflow
+      - caddy
 
   airflow-cli:
     <<: *airflow-common
@@ -264,6 +277,9 @@ services:
       - airflow
     depends_on:
       <<: *airflow-common-depends-on
+    networks:
+      - airflow
+      - caddy
 
   # You can enable flower by adding "--profile flower" option e.g. docker-compose --profile flower up
   # or by explicitly targeted on the command line e.g. docker-compose up flower.
@@ -287,6 +303,9 @@ services:
       <<: *airflow-common-depends-on
       airflow-init:
         condition: service_completed_successfully
+    networks:
+      - airflow
+      - caddy
 
 networks:
   caddy:
