@@ -20,10 +20,12 @@ x-airflow-common: &airflow-common
           "name": "healthline-dags",
           "classpath": "airflow.providers.git.bundles.git.GitDagBundle",
           "kwargs": {
+            "git_conn_id": "healthline_git_repo",
             "subdir": "dags",
             "tracking_ref": "main",
             "refresh_interval": 30
           }
+        }
       ]
   volumes:
     - ${AIRFLOW_PROJ_DIR}/dags:/opt/airflow/dags
