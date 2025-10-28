@@ -5,6 +5,7 @@ apache-airflow-providers-amazon
 apache-airflow-providers-git
 psycopg2-binary
 asyncpg
+connexion
 pandas
 polars
 duckdb
