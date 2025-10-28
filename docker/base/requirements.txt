@@ -6,3 +6,4 @@ apache-airflow-providers-git
 psycopg2-binary
 asyncpg
 connexion
+flask
