@@ -1,5 +1,5 @@
 ARG AIRFLOW_VERSION=3.1.1
-ARG PYTHON_VERSION=3.13
+ARG PYTHON_VERSION=3.12
 
 FROM apache/airflow:slim-${AIRFLOW_VERSION}-python${PYTHON_VERSION}
 COPY --from=ghcr.io/astral-sh/uv:0.9.5 /uv /uvx /bin/

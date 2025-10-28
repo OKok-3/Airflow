@@ -5,6 +5,3 @@ apache-airflow-providers-amazon
 apache-airflow-providers-git
 psycopg2-binary
 asyncpg
-connexion
-flask
-flask_appbuilder
