@@ -7,6 +7,7 @@ psycopg2-binary
 asyncpg
 connexion
 flask
+flask_appbuilder
 
 # Custom pacakges
 pandas
