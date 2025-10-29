@@ -7,7 +7,7 @@ COPY --from=ghcr.io/astral-sh/uv:0.9.5 /uv /uvx /bin/
 ARG AIRFLOW_VERSION
 ARG PYTHON_VERSION
 COPY constraints/${AIRFLOW_VERSION}-python-${PYTHON_VERSION}.txt /opt/airflow/constraints.txt
-COPY docker/base/requirements.txt /opt/airflow/requirements.txt
+COPY docker/extended/requirements.txt /opt/airflow/requirements.txt
 
 ENV AIRFLOW__CORE__EXECUTOR=CeleryExecutor
 
