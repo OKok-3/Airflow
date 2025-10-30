@@ -22,7 +22,7 @@ x-airflow-common: &airflow-common
           "classpath": "airflow.providers.git.bundles.git.GitDagBundle",
           "kwargs": {
             "git_conn_id": "owt-git-repo",
-            "subdir": "airflow/dags",
+            "subdir": "airflow/open_wait_times",
             "tracking_ref": "main",
             "refresh_interval": 30
           }
