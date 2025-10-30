@@ -7,6 +7,24 @@ x-airflow-common: &airflow-common
     AIRFLOW__CELERY__BROKER_URL: redis://:@${REDIS_HOST}:6379/0
     AIRFLOW__CORE__EXECUTION_API_SERVER_URL: "${AIRFLOW_BASE_URL}/execution/"
     AIRFLOW__SECRETS__BACKEND: airflow.secrets.metastore.MetastoreBackend
+    AIRFLOW__DAG_PROCESSOR__DAG_BUNDLE_CONFIG_LIST: |
+      [
+        {
+          "name": "dags-folder",
+          "classpath": "airflow.dag_processing.bundles.local.LocalDagBundle",
+          "kwargs": {}
+        },
+        {
+          "name": "open-wait-times-dags",
+          "classpath": "airflow.providers.git.bundles.git.GitDagBundle",
+          "kwargs": {
+            "git_conn_id": "owt-git-repo",
+            "subdir": "airflow/open_wait_times",
+            "tracking_ref": "main",
+            "refresh_interval": 60
+          }
+        }
+      ]
   volumes:
     - ${AIRFLOW_PROJ_DIR}/dags:/opt/airflow/dags
     - ${AIRFLOW_PROJ_DIR}/logs:/opt/airflow/logs
