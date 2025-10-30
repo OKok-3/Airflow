@@ -24,7 +24,7 @@ x-airflow-common: &airflow-common
             "git_conn_id": "owt-git-repo",
             "subdir": "airflow/open_wait_times",
             "tracking_ref": "main",
-            "refresh_interval": 30
+            "refresh_interval": 60
           }
         }
       ]
